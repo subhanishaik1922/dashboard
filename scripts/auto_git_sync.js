@@ -156,6 +156,12 @@ async function executeGitSync(reason = 'File change detected') {
         console.log(`✅ [AUTO-GIT-SYNC] Successfully rebased and pushed to origin main!`);
       } catch (retryErr) {
         console.error(`❌ [AUTO-GIT-SYNC FATAL] Push failed:`, retryErr.message);
+        if (retryErr.message.includes('403') || retryErr.message.includes('denied') || pushErr.message.includes('403')) {
+          console.warn(`\n🔑 [GITHUB AUTH NOTICE] Push authorization failed (HTTP 403 / Permission Denied).`);
+          console.warn(`   If using a GitHub Personal Access Token (PAT), please verify it has:`);
+          console.warn(`   -> Repository permissions > Contents: 'Read and write'`);
+          console.warn(`   Configure this in GitHub: Settings > Developer Settings > Personal access tokens.\n`);
+        }
       }
     }
     console.log(`=======================================================\n`);

@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon -L server.js"
+    "dev": "nodemon -L server.js",
+    "sync:watch": "node scripts/auto_git_sync.js",
+    "sync:push": "node scripts/auto_git_sync.js --once"
   },
   "keywords": [
     "cms",
