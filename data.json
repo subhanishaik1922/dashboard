@@ -42,13 +42,13 @@
         "domains": []
       }
     ],
-    "lastSynced": "2026-10-01T15:53:16.373Z"
+    "lastSynced": "2026-10-01T17:06:06.281Z"
   },
   "vercel": {
     "apiToken": "",
     "teamId": "",
     "autoSync": true,
-    "lastSynced": "2026-10-01T16:46:21.639Z",
+    "lastSynced": "2026-10-01T17:06:06.620Z",
     "cachedDeployments": [
       {
         "id": "dpl_Cr1mPEPq4vaXbwzRtm7BypSPnJhG",
@@ -81,7 +81,7 @@
           "portfolio-main-subhani1922.vercel.app",
           "portfolio-main-git-main-subhani1922.vercel.app"
         ],
-        "updatedAt": "2026-09-30T15:44:31.436Z",
+        "updatedAt": "2026-10-01T17:03:09.958Z",
         "repo": "portfolio-main"
       }
     ]
