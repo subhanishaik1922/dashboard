@@ -5,11 +5,11 @@ services:
     restart: unless-stopped
     command: npm run dev
     ports:
-      - "5000:5000"
+      - "3000:3000"
     env_file:
       - .env
     environment:
-      - PORT=5000
+      - PORT=3000
       - GITHUB_USERNAME=${GITHUB_USERNAME}
       - GITHUB_TOKEN=${GITHUB_TOKEN}
       - VERCEL_TOKEN=${VERCEL_TOKEN}

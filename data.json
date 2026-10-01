@@ -4,6 +4,24 @@
     "profileUrl": "https://github.com/subhanishaik1922",
     "repositories": [
       {
+        "id": "1400228543",
+        "name": "dashboard",
+        "description": "Full-stack software engineering project with CI/CD automation.",
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript / JavaScript",
+        "visible": true,
+        "featured": false,
+        "isPrivate": false,
+        "owner": {
+          "login": "subhanishaik1922"
+        },
+        "vercelProject": "dashboard",
+        "repoUrl": "https://github.com/subhanishaik1922/dashboard",
+        "html_url": "https://github.com/subhanishaik1922/dashboard",
+        "domains": []
+      },
+      {
         "id": "1393199225",
         "name": "portfolio-main",
         "description": "Full-stack software engineering project with CI/CD automation.",
@@ -24,13 +42,13 @@
         "domains": []
       }
     ],
-    "lastSynced": "2026-10-01T14:47:59.620Z"
+    "lastSynced": "2026-10-01T15:47:17.572Z"
   },
   "vercel": {
     "apiToken": "",
     "teamId": "",
     "autoSync": true,
-    "lastSynced": "2026-10-01T15:19:59.065Z",
+    "lastSynced": "2026-10-01T15:46:01.104Z",
     "cachedDeployments": [
       {
         "id": "dpl_Cr1mPEPq4vaXbwzRtm7BypSPnJhG",
@@ -108,8 +126,8 @@
         "year": "2017"
       }
     ],
-    "updatedAt": "2026-10-01T14:51:40.178Z",
-    "dockerPersistenceProbe": "test_val_1790865877922",
+    "updatedAt": "2026-10-01T15:47:17.686Z",
+    "dockerPersistenceProbe": "test_val_1790869637662",
     "linkedin_url": "https://www.linkedin.com/in/mahaboob-subhani-shaik-961a68228/",
     "naukri_url": "https://www.naukri.com/mnjuser/profile?id=&altresid",
     "resume_filename": "Mahaboob_Subhani_Shaik_DevOps_Resume (1).pdf",
@@ -124,7 +142,7 @@
       "applicationsCount": 28,
       "inmailMessages": 11,
       "connectionCount": 3850,
-      "lastUpdated": "2026-10-01T14:51:40.178Z"
+      "lastUpdated": "2026-10-01T15:47:13.686Z"
     },
     "naukri": {
       "profileUrl": "https://www.naukri.com/mnjuser/profile?id=&altresid",
@@ -134,7 +152,7 @@
       "applicationsCount": 19,
       "recruiterActions": 25,
       "profileScore": 96,
-      "lastUpdated": "2026-10-01T14:51:40.178Z"
+      "lastUpdated": "2026-10-01T15:47:13.768Z"
     },
     "applications": [
       {
