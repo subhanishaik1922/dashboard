@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Command Center — Personal CMS & Network Hub</title>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="/" onclick="navigateToRoute(event, '/')" class="brand">
+        <div class="brand-icon">⚡</div>
+        <span>Career Command Center</span>
+      </a>
+
+      <!-- View Switcher -->
+      <div class="view-switcher" role="tablist">
+        <button id="nav-btn-public" class="view-btn active" onclick="navigateToRoute(event, '/')">
+          <i data-lucide="globe" style="width: 16px; height: 16px;"></i>
+          <span>Public Portfolio</span>
+        </button>
+        <button id="nav-btn-admin" class="view-btn" onclick="navigateToRoute(event, '/admin')">
+          <i id="nav-admin-icon" data-lucide="lock" style="width: 15px; height: 15px;"></i>
+          <span id="nav-admin-text">Admin CMS</span>
+        </button>
+      </div>
+
+      <!-- Live Vercel Status Beacon & Nav Actions -->
+      <div class="nav-actions">
+        <div id="nav-vercel-beacon" class="sync-status-pill" title="Live status from Vercel REST API">
+          <span class="pulse-dot"></span>
+          <span id="nav-vercel-text">Vercel: Connected</span>
+        </div>
+
+        <!-- Logout Button (Shown only when authenticated) -->
+        <button id="nav-btn-logout" class="icon-btn" style="display: none; color: #f87171;" onclick="handleLogout()" title="Log out from Admin CMS">
+          <i data-lucide="log-out" style="width: 18px; height: 18px;"></i>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+          <i data-lucide="moon" id="theme-icon" style="width: 18px; height: 18px;"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- ====================================================================
+         VIEW 1: PUBLIC-FACING PORTFOLIO (/)
+         ==================================================================== -->
+    <section id="public-view" class="view-panel active">
+      <!-- Hero Card -->
+      <div class="hero-card">
+        <div class="hero-header">
+          <div class="hero-title-group">
+            <h1 id="pub-fullname">Subhani shaik</h1>
+            <div id="pub-title" class="hero-subtitle">Principal Full-Stack Engineer & Cloud Architect</div>
+            <div class="hero-meta">
+              <span class="hero-meta-item">
+                <i data-lucide="map-pin" style="width: 15px; height: 15px;"></i>
+                <span id="pub-location">Bengaluru, India / Remote</span>
+              </span>
+              <span class="hero-meta-item">
+                <i data-lucide="mail" style="width: 15px; height: 15px;"></i>
+                <span id="pub-email">subhamoy.dev@example.com</span>
+              </span>
+              <span class="hero-meta-item">
+                <span class="sync-status-pill" id="pub-availability">
+                  <span class="pulse-dot"></span>
+                  <span id="pub-availability-text">Open to Principal Roles</span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <p id="pub-shortbio" class="hero-bio">
+          Engineering leader specializing in scalable distributed microservices, reactive frontend architectures, cloud platforms (AWS, GCP, Vercel), and high-throughput systems.
+        </p>
+
+        <!-- High-Visibility Professional Network Action Badges -->
+        <div class="network-badges-row">
+          <!-- LinkedIn Action Badge -->
+          <a id="pub-badge-linkedin" href="https://www.linkedin.com/in/subhanishaik1922" target="_blank" rel="noopener noreferrer" class="network-badge badge-linkedin">
+            <i data-lucide="linkedin" style="width: 22px; height: 22px;"></i>
+            <div>
+              <div style="font-size: 0.98rem; font-weight: 700; line-height: 1.2;">Connect on LinkedIn</div>
+              <div style="font-size: 0.76rem; opacity: 0.9; display: flex; align-items: center; gap: 6px;">
+                <span id="pub-linkedin-badge-metric">580+ Profile Views</span>
+                <span>•</span>
+                <span>Active Profile ↗</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Naukri FastForward Action Badge -->
+          <a id="pub-badge-naukri" href="https://www.naukri.com/mnjuser/profile?id=subhanishaik1922" target="_blank" rel="noopener noreferrer" class="network-badge badge-naukri">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="naukri-tag">Naukri</span>
+              <i data-lucide="briefcase" style="width: 20px; height: 20px; color: #ff7555;"></i>
+            </div>
+            <div>
+              <div style="font-size: 0.98rem; font-weight: 700; line-height: 1.2; color: #fff;">Hire on Naukri.com</div>
+              <div style="font-size: 0.76rem; color: #cbd5e1; display: flex; align-items: center; gap: 6px;">
+                <span id="pub-naukri-badge-metric">FastForward Verified • 96% Score</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- GitHub Profile Link -->
+          <a id="pub-badge-github" href="https://github.com/subhanishaik1922" target="_blank" rel="noopener noreferrer" class="network-badge badge-github">
+            <i data-lucide="github" style="width: 20px; height: 20px;"></i>
+            <div>
+              <div style="font-size: 0.95rem; font-weight: 700;">GitHub Repos</div>
+              <div style="font-size: 0.75rem; color: var(--text-dim);" id="pub-github-badge-metric">Active Codebase ↗</div>
+            </div>
+          </a>
+
+          <!-- Resume Link -->
+          <a id="pub-badge-resume" href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer" download="resume.pdf" class="network-badge badge-resume" onclick="handleResumeDownload(event)">
+            <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
+            <span>Download Resume</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Deployments & Portfolio Section -->
+      <div class="section-header">
+        <h2 class="section-title">
+          <i data-lucide="layers" style="width: 24px; height: 24px; color: var(--primary);"></i>
+          <span>Live Deployments & Portfolio</span>
+        </h2>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
+          <span>Synced with Vercel REST API</span>
+          <button class="icon-btn" onclick="syncVercelDeployments()" title="Refresh Vercel Deployments">
+            <i data-lucide="refresh-cw" id="pub-refresh-icon" style="width: 15px; height: 15px;"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div id="portfolio-cards-container" class="portfolio-grid">
+        <!-- Rendered dynamically via publicView.js -->
+      </div>
+
+      <!-- Career Highlights & Core Architecture Skills -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.75rem; margin-top: 1rem;">
+        <!-- Experience -->
+        <div class="admin-card" style="margin-bottom: 0;">
+          <div class="card-headline">
+            <h3><i data-lucide="briefcase" style="width: 18px; height: 18px; color: var(--primary);"></i> Career Experience</h3>
+          </div>
+          <div id="pub-experience-list" style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="admin-card" style="margin-bottom: 0;">
+          <div class="card-headline">
+            <h3><i data-lucide="cpu" style="width: 18px; height: 18px; color: var(--accent);"></i> Core Competencies</h3>
+          </div>
+          <div id="pub-skills-cloud" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 2: PRIVATE ADMIN DASHBOARD (/admin) — STRICTLY PROTECTED
+         ==================================================================== -->
+    <section id="admin-view" class="view-panel">
+      <!-- Admin Header -->
+      <div class="admin-header">
+        <div class="admin-title-area">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+            <h2>Dashboard CMS Control View</h2>
+            <span class="sync-status-pill" style="font-size: 0.74rem;">
+              <span class="pulse-dot"></span> Authenticated
+            </span>
+          </div>
+          <p>Manage portfolio identity, configure live Vercel deployments, and synchronize job network metrics.</p>
+        </div>
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <button class="btn btn-secondary btn-sm" onclick="exportDataBackup()" title="Download current database snapshot">
+            <i data-lucide="download" style="width: 14px; height: 14px;"></i> Export Backup
+          </button>
+          <button class="btn btn-secondary btn-sm" onclick="handleLogout()" title="Lock dashboard and log out">
+            <i data-lucide="lock" style="width: 14px; height: 14px;"></i> Lock & Exit
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="navigateToRoute(event, '/')">
+            <i data-lucide="external-link" style="width: 14px; height: 14px;"></i> View Public Site
+          </button>
+        </div>
+      </div>
+
+      <!-- Multi-Tab Navigation Bar -->
+      <div class="admin-tabs" role="tablist">
+        <button id="tab-btn-identity" class="admin-tab-btn active" onclick="switchAdminTab('identity')">
+          <i data-lucide="user" style="width: 18px; height: 18px;"></i>
+          <span>Tab 1: Identity & Resume</span>
+        </button>
+        <button id="tab-btn-code" class="admin-tab-btn" onclick="switchAdminTab('code')">
+          <i data-lucide="code-2" style="width: 18px; height: 18px;"></i>
+          <span>Tab 2: Code & Hosting (Vercel + GitHub)</span>
+        </button>
+        <button id="tab-btn-jobhunt" class="admin-tab-btn" onclick="switchAdminTab('jobhunt')">
+          <i data-lucide="trending-up" style="width: 18px; height: 18px;"></i>
+          <span>Tab 3: Job Hunting (LinkedIn & Naukri)</span>
+        </button>
+      </div>
+
+      <!-- ================================================================
+           TAB 1: IDENTITY & RESUME CONTROLS
+           ================================================================ -->
+      <div id="tab-content-identity" class="tab-content active">
+        <form id="identity-form" onsubmit="handleIdentitySubmit(event)">
+          <div class="admin-card">
+            <div class="card-headline">
+              <h3><i data-lucide="id-card" style="width: 18px; height: 18px; color: var(--primary);"></i> Personal Details</h3>
+              <button type="submit" class="btn btn-primary btn-sm">
+                <i data-lucide="save" style="width: 14px; height: 14px;"></i> Save Personal Info
+              </button>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adm-fullname">Full Name</label>
+                <input type="text" id="adm-fullname" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="adm-title">Professional Title / Headline</label>
+                <input type="text" id="adm-title" class="form-input" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adm-email">Contact Email</label>
+                <input type="email" id="adm-email" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="adm-phone">Phone Number</label>
+                <input type="text" id="adm-phone" class="form-input">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adm-location">Location / Remote Status</label>
+                <input type="text" id="adm-location" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="adm-availability">Availability Status Badge</label>
+                <input type="text" id="adm-availability" class="form-input" placeholder="e.g. Open to Principal Roles">
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Bios -->
+          <div class="admin-card">
+            <div class="card-headline">
+              <h3><i data-lucide="file-text" style="width: 18px; height: 18px; color: var(--accent);"></i> Profile Bios</h3>
+            </div>
+            <div class="form-group">
+              <label for="adm-shortbio">Elevator Pitch (Hero Tagline)</label>
+              <textarea id="adm-shortbio" class="form-textarea" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="adm-longbio">Extended About Me / Bio</label>
+              <textarea id="adm-longbio" class="form-textarea" rows="4"></textarea>
+            </div>
+          </div>
+
+          <!-- Active Professional Profile Links (LinkedIn & Naukri) -->
+          <div class="admin-card" style="border-left: 4px solid var(--primary);">
+            <div class="card-headline">
+              <h3><i data-lucide="share-2" style="width: 18px; height: 18px; color: var(--primary);"></i> Active Professional Network Profile Links</h3>
+              <button type="button" class="btn btn-primary btn-sm" onclick="handleSaveSocialLinks()">
+                <i data-lucide="save" style="width: 14px; height: 14px;"></i> Save Profile Links
+              </button>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adm-social-linkedin" style="display: flex; align-items: center; gap: 6px;">
+                  <i data-lucide="linkedin" style="width: 15px; height: 15px; color: #60a5fa;"></i>
+                  <span>LinkedIn Profile URL</span>
+                </label>
+                <input type="url" id="adm-social-linkedin" class="form-input" placeholder="https://www.linkedin.com/in/username" required>
+              </div>
+              <div class="form-group">
+                <label for="adm-social-naukri" style="display: flex; align-items: center; gap: 6px;">
+                  <span class="naukri-tag" style="font-size: 0.68rem; padding: 1px 5px;">Naukri</span>
+                  <span>Naukri Profile URL</span>
+                </label>
+                <input type="url" id="adm-social-naukri" class="form-input" placeholder="https://www.naukri.com/mnjuser/profile?id=username" required>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 0.25rem;">
+              <a id="adm-social-linkedin-preview" href="https://www.linkedin.com/in/subhanishaik1922" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem;">
+                <i data-lucide="external-link" style="width: 12px; height: 12px;"></i> Test LinkedIn URL
+              </a>
+              <a id="adm-social-naukri-preview" href="https://www.naukri.com/mnjuser/profile?id=subhanishaik1922" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem;">
+                <i data-lucide="external-link" style="width: 12px; height: 12px;"></i> Test Naukri URL
+              </a>
+              <span style="font-size: 0.78rem; color: var(--text-dim); margin-left: auto;">Saves directly to data.json & syncs with public action badges</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Resume PDF Upload Engine -->
+          <div class="admin-card" style="border-left: 4px solid var(--accent);">
+            <div class="card-headline">
+              <h3><i data-lucide="file-up" style="width: 18px; height: 18px; color: var(--accent);"></i> Dynamic Resume PDF Upload Engine</h3>
+              <a id="adm-resume-preview-link" href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <i data-lucide="file-text" style="width: 14px; height: 14px;"></i> Preview Current PDF
+              </a>
+            </div>
+
+            <div class="form-group">
+              <label for="adm-resumeurl">Active Resume Static Path / URL</label>
+              <input type="text" id="adm-resumeurl" class="form-input" value="/assets/resume.pdf" readonly style="background: var(--bg-secondary); font-family: var(--font-mono); color: var(--primary);">
+            </div>
+
+            <!-- Standard File-Picker Input for PDF Upload -->
+            <div style="background: var(--bg-secondary); border: 2px dashed var(--border-color); border-radius: var(--radius-sm); padding: 1.25rem; margin-top: 0.5rem;">
+              <div class="form-group" style="margin-bottom: 0.75rem;">
+                <label for="adm-resume-file" style="font-weight: 700; display: flex; align-items: center; gap: 6px; font-size: 0.95rem; color: var(--text-main);">
+                  <i data-lucide="upload" style="width: 16px; height: 16px; color: var(--accent);"></i>
+                  Upload New Resume (PDF Only)
+                </label>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                  Select a new PDF file to replace the current resume. Uploading saves directly to <code>public/assets/resume.pdf</code> and instantly updates the public "Download Resume" button.
+                </div>
+                <input type="file" id="adm-resume-file" class="form-input" accept="application/pdf,.pdf" onchange="handleResumeFileSelected(event)">
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem;">
+                <div id="adm-resume-file-info" style="font-size: 0.82rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  Current: /assets/resume.pdf (Active)
+                </div>
+                <button type="button" id="adm-resume-upload-btn" class="btn btn-primary" onclick="handleResumeUpload()">
+                  <i data-lucide="upload-cloud" style="width: 16px; height: 16px;"></i> Upload & Replace Resume
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Controls -->
+          <div class="admin-card">
+            <div class="card-headline">
+              <h3><i data-lucide="layers" style="width: 18px; height: 18px; color: var(--success);"></i> Skills & Capabilities</h3>
+            </div>
+            <div class="form-group">
+              <label for="adm-skills">Key Skills (Comma-separated)</label>
+              <input type="text" id="adm-skills" class="form-input" placeholder="TypeScript, Node.js, React, Next.js, Vercel, Docker">
+            </div>
+            <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+              <button type="submit" class="btn btn-primary">
+                <i data-lucide="check" style="width: 16px; height: 16px;"></i> Persist All Identity Changes
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Experience CRUD Section -->
+        <div class="admin-card">
+          <div class="card-headline">
+            <h3><i data-lucide="briefcase" style="width: 18px; height: 18px; color: var(--primary);"></i> Work Experience Entries</h3>
+            <button type="button" id="btn-add-position" class="btn btn-secondary btn-sm btn-add-position" onclick="handleAddPositionRow()">
+              <i data-lucide="plus" style="width: 14px; height: 14px;"></i> Add Position
+            </button>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Manage your career journey and professional positions. Click 'Add Position' to inject new entry forms and persist to <code>data.json</code>.
+          </p>
+          <!-- Dynamic Form Wrapper for Injected Position Rows -->
+          <div id="adm-experience-form-wrapper" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1rem;"></div>
+          <!-- Existing Saved Experience List -->
+          <div id="adm-experience-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================
+           TAB 2: CODE & HOSTING (GITHUB + VERCEL API HUB)
+           ================================================================ -->
+      <div id="tab-content-code" class="tab-content">
+        <!-- Vercel API Hub Integration Card (Security & Configuration) -->
+        <div class="admin-card" style="border: 1px solid rgba(59, 130, 246, 0.4); background: linear-gradient(180deg, rgba(30, 41, 64, 0.4), var(--bg-card));">
+          <div class="card-headline">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 76 65" fill="none" style="fill: currentColor;">
+                <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
+              </svg>
+              <span>Vercel API Hub Configuration</span>
+            </h3>
+            <div id="adm-vercel-conn-status" class="sync-status-pill">
+              <span class="pulse-dot"></span>
+              <span id="adm-vercel-conn-text">Active Token Configured</span>
+            </div>
+          </div>
+
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Securely save your Vercel Personal Access Token to connect directly to the Vercel REST API (<code>/v6/deployments</code>). The backend queries live statuses ('Ready', 'Building', 'Error'), custom domains, and commit hashes.
+          </p>
+
+          <form id="vercel-token-form" onsubmit="handleVercelTokenSave(event)">
+            <div class="form-row">
+              <div class="form-group" style="flex: 2;">
+                <label for="adm-vercel-token">Vercel Personal Access Token (PAT)</label>
+                <input type="password" id="adm-vercel-token" class="form-input" placeholder="vercel_pat_..." autocomplete="off">
+                <small id="adm-vercel-token-status" style="display:block; margin-top: 4px; font-size: 0.78rem; color: var(--text-dim); font-family: var(--font-mono);">
+                  Stored Token: None configured (using local cache)
+                </small>
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label for="adm-vercel-teamid">Team ID (Optional)</label>
+                <input type="text" id="adm-vercel-teamid" class="form-input" placeholder="team_...">
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem; justify-content: flex-end; align-items: center; margin-top: 0.5rem;">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="syncVercelDeployments()">
+                <i data-lucide="refresh-cw" id="admin-sync-icon" style="width: 14px; height: 14px;"></i> Re-Fetch Vercel API
+              </button>
+              <button type="submit" class="btn btn-primary btn-sm">
+                <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i> Save Token & Connect
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Side-by-Side: GitHub Toggles vs Live Vercel Deployments -->
+        <div class="code-hosting-grid">
+          <!-- Left Column: GitHub Repositories -->
+          <div class="admin-card">
+            <div class="card-headline">
+              <h3><i data-lucide="github" style="width: 18px; height: 18px;"></i> GitHub Repositories</h3>
+              <button class="btn btn-secondary btn-sm" onclick="showAddRepoModal()">
+                <i data-lucide="plus" style="width: 14px; height: 14px;"></i> Add Repo
+              </button>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Toggle repository visibility on your public portfolio and pin featured projects.
+            </p>
+            <div id="adm-repos-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Right Column: Live Vercel Deployments Log -->
+          <div class="admin-card">
+            <div class="card-headline">
+              <h3>
+                <i data-lucide="activity" style="width: 18px; height: 18px; color: var(--primary);"></i>
+                <span>Live Vercel Deployment Logs</span>
+              </h3>
+              <span id="adm-last-synced-badge" style="font-size: 0.78rem; color: var(--text-dim); font-family: var(--font-mono);">
+                Synced: Just now
+              </span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Active deployment status fetched directly from Vercel. Test state transitions with simulated toggles below.
+            </p>
+            <div id="adm-deployments-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================
+           TAB 3: JOB HUNTING (LINKEDIN & NAUKRI METRIC TRACKERS)
+           ================================================================ -->
+      <div id="tab-content-jobhunt" class="tab-content">
+        <!-- Top KPI Tiles -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div class="admin-card" style="margin-bottom: 0; padding: 1.25rem;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="eye" style="width: 16px; height: 16px; color: var(--primary);"></i> Combined Views
+            </div>
+            <div id="kpi-total-views" style="font-size: 1.85rem; font-weight: 800; margin-top: 4px; font-family: var(--font-mono);">940</div>
+            <div style="font-size: 0.75rem; color: var(--success); margin-top: 2px;">+18% from last week</div>
+          </div>
+
+          <div class="admin-card" style="margin-bottom: 0; padding: 1.25rem;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="search" style="width: 16px; height: 16px; color: var(--accent);"></i> Search Appearances
+            </div>
+            <div id="kpi-total-searches" style="font-size: 1.85rem; font-weight: 800; margin-top: 4px; font-family: var(--font-mono);">331</div>
+            <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 2px;">Across LinkedIn & Naukri</div>
+          </div>
+
+          <div class="admin-card" style="margin-bottom: 0; padding: 1.25rem;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="send" style="width: 16px; height: 16px; color: var(--warning);"></i> Active Applications
+            </div>
+            <div id="kpi-total-apps" style="font-size: 1.85rem; font-weight: 800; margin-top: 4px; font-family: var(--font-mono);">45</div>
+            <div style="font-size: 0.75rem; color: var(--primary); margin-top: 2px;">4 in Interview Stage</div>
+          </div>
+
+          <div class="admin-card" style="margin-bottom: 0; padding: 1.25rem;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="message-square" style="width: 16px; height: 16px; color: #ff7555;"></i> Recruiter Inquiries
+            </div>
+            <div id="kpi-total-inquiries" style="font-size: 1.85rem; font-weight: 800; margin-top: 4px; font-family: var(--font-mono);">34</div>
+            <div style="font-size: 0.75rem; color: var(--success); margin-top: 2px;">High engagement rate</div>
+          </div>
+        </div>
+
+        <!-- Dual Column: LinkedIn Tracker & Naukri Tracker -->
+        <div class="form-grid">
+          <!-- LinkedIn Metric Tracker Card -->
+          <div class="admin-card" style="border-top: 4px solid var(--linkedin-blue);">
+            <div class="card-headline">
+              <h3 style="color: #60a5fa;">
+                <i data-lucide="linkedin" style="width: 20px; height: 20px;"></i>
+                <span>LinkedIn Network Sync</span>
+              </h3>
+              <a id="adm-linkedin-preview-link" href="#" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.78rem;">
+                <i data-lucide="external-link" style="width: 12px; height: 12px;"></i> View Profile
+              </a>
+            </div>
+
+            <form id="linkedin-form" onsubmit="handleLinkedInSubmit(event)">
+              <div class="form-group">
+                <label for="adm-linkedin-url">LinkedIn Profile URL</label>
+                <input type="url" id="adm-linkedin-url" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="adm-linkedin-headline">Custom Badge Headline</label>
+                <input type="text" id="adm-linkedin-headline" class="form-input">
+              </div>
+
+              <!-- Editable Metric Counters with Steppers -->
+              <div class="metric-counter-row">
+                <div class="metric-info">
+                  <span class="metric-label">Profile Views (90 Days)</span>
+                  <span class="metric-desc">Count of recruiters & peers visiting profile</span>
+                </div>
+                <div class="metric-control">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-linkedin-views', -5)">-</button>
+                  <input type="number" id="adm-linkedin-views" class="metric-input" min="0">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-linkedin-views', 5)">+</button>
+                </div>
+              </div>
+
+              <div class="metric-counter-row">
+                <div class="metric-info">
+                  <span class="metric-label">Search Appearances</span>
+                  <span class="metric-desc">Weekly appearances in recruiter queries</span>
+                </div>
+                <div class="metric-control">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-linkedin-searches', -5)">-</button>
+                  <input type="number" id="adm-linkedin-searches" class="metric-input" min="0">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-linkedin-searches', 5)">+</button>
+                </div>
+              </div>
+
+              <div class="metric-counter-row">
+                <div class="metric-info">
+                  <span class="metric-label">Applications Submitted</span>
+                  <span class="metric-desc">Total roles applied via LinkedIn Easy Apply</span>
+                </div>
+                <div class="metric-control">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-linkedin-apps', -1)">-</button>
+                  <input type="number" id="adm-linkedin-apps" class="metric-input" min="0">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-linkedin-apps', 1)">+</button>
+                </div>
+              </div>
+
+              <div class="metric-counter-row">
+                <div class="metric-info">
+                  <span class="metric-label">InMail / Direct Messages</span>
+                  <span class="metric-desc">Incoming recruiter reach-outs</span>
+                </div>
+                <div class="metric-control">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-linkedin-inmails', -1)">-</button>
+                  <input type="number" id="adm-linkedin-inmails" class="metric-input" min="0">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-linkedin-inmails', 1)">+</button>
+                </div>
+              </div>
+
+              <div style="margin-top: 1.25rem;">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  <i data-lucide="check-circle" style="width: 16px; height: 16px;"></i> Save LinkedIn Metrics
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Naukri FastForward Metric Tracker Card -->
+          <div class="admin-card" style="border-top: 4px solid var(--naukri-orange);">
+            <div class="card-headline">
+              <h3 style="color: #ff7555;">
+                <span class="naukri-tag" style="margin-right: 4px;">Naukri</span>
+                <span>FastForward Network Sync</span>
+              </h3>
+              <a id="adm-naukri-preview-link" href="#" target="_blank" class="btn btn-secondary btn-sm" style="font-size: 0.78rem;">
+                <i data-lucide="external-link" style="width: 12px; height: 12px;"></i> View Profile
+              </a>
+            </div>
+
+            <form id="naukri-form" onsubmit="handleNaukriSubmit(event)">
+              <div class="form-group">
+                <label for="adm-naukri-url">Naukri Profile URL</label>
+                <input type="url" id="adm-naukri-url" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="adm-naukri-headline">Naukri Resume Headline</label>
+                <input type="text" id="adm-naukri-headline" class="form-input">
+              </div>
+
+              <!-- Editable Metric Counters with Steppers -->
+              <div class="metric-counter-row">
+                <div class="metric-info">
+                  <span class="metric-label">Profile Views</span>
+                  <span class="metric-desc">Recruiters who unlocked or viewed resume</span>
+                </div>
+                <div class="metric-control">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-naukri-views', -5)">-</button>
+                  <input type="number" id="adm-naukri-views" class="metric-input" min="0">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-naukri-views', 5)">+</button>
+                </div>
+              </div>
+
+              <div class="metric-counter-row">
+                <div class="metric-info">
+                  <span class="metric-label">Search Appearances</span>
+                  <span class="metric-desc">Times profile matched recruiter keyword searches</span>
+                </div>
+                <div class="metric-control">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-naukri-searches', -5)">-</button>
+                  <input type="number" id="adm-naukri-searches" class="metric-input" min="0">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-naukri-searches', 5)">+</button>
+                </div>
+              </div>
+
+              <div class="metric-counter-row">
+                <div class="metric-info">
+                  <span class="metric-label">Applications Submitted</span>
+                  <span class="metric-desc">Active job applications submitted via Naukri</span>
+                </div>
+                <div class="metric-control">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-naukri-apps', -1)">-</button>
+                  <input type="number" id="adm-naukri-apps" class="metric-input" min="0">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-naukri-apps', 1)">+</button>
+                </div>
+              </div>
+
+              <div class="metric-counter-row">
+                <div class="metric-info">
+                  <span class="metric-label">Recruiter Actions / Inquiries</span>
+                  <span class="metric-desc">CV downloads, phone calls, contact requests</span>
+                </div>
+                <div class="metric-control">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-naukri-actions', -1)">-</button>
+                  <input type="number" id="adm-naukri-actions" class="metric-input" min="0">
+                  <button type="button" class="btn-step" onclick="stepMetric('adm-naukri-actions', 1)">+</button>
+                </div>
+              </div>
+
+              <div style="margin-top: 1.25rem;">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  <i data-lucide="check-circle" style="width: 16px; height: 16px;"></i> Save Naukri Metrics
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Job Application Pipeline Tracker -->
+        <div class="admin-card">
+          <div class="card-headline">
+            <h3>
+              <i data-lucide="send" style="width: 18px; height: 18px; color: var(--primary);"></i>
+              <span>Active Job Application Pipeline</span>
+            </h3>
+            <button class="btn btn-secondary btn-sm" onclick="showAddApplicationModal()">
+              <i data-lucide="plus" style="width: 14px; height: 14px;"></i> Log Application
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Role</th>
+                  <th>Source</th>
+                  <th>Applied Date</th>
+                  <th>Status</th>
+                  <th>Notes</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adm-applications-tbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 3: SECURE LOGIN SCREEN (/login)
+         ==================================================================== -->
+    <section id="login-view" class="view-panel">
+      <div class="login-wrapper">
+        <div class="login-card">
+          <div class="login-icon-badge">
+            <i data-lucide="shield-alert" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h2 class="login-title">Admin Authentication</h2>
+          <p class="login-subtitle">
+            This private CMS control panel is protected. Please enter the master password configured in your server environment (<code>ADMIN_PASSWORD</code>).
+          </p>
+
+          <!-- Dynamic Alert Box -->
+          <div id="login-alert-box" class="login-alert" role="alert">
+            <i data-lucide="alert-circle" style="width: 18px; height: 18px; flex-shrink: 0;"></i>
+            <span id="login-alert-text">Invalid admin password. Access denied.</span>
+          </div>
+
+          <form id="admin-login-form" onsubmit="handleLoginSubmit(event)">
+            <div class="login-input-group">
+              <label for="login-password-input" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.45rem; color: var(--text-muted);">
+                Admin Password
+              </label>
+              <div class="login-password-wrapper">
+                <input 
+                  type="password" 
+                  id="login-password-input" 
+                  class="form-input" 
+                  placeholder="Enter ADMIN_PASSWORD..." 
+                  required 
+                  autofocus
+                  autocomplete="current-password"
+                >
+                <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('login-password-input', this)" title="Show/Hide Password">
+                  <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" id="login-submit-btn" class="btn btn-primary" style="width: 100%; padding: 0.8rem; font-size: 0.95rem; margin-top: 0.5rem;">
+              <i data-lucide="unlock" style="width: 16px; height: 16px;"></i>
+              <span>Authenticate & Enter Admin</span>
+            </button>
+          </form>
+
+          <div style="margin-top: 1.75rem; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+            <a href="/" onclick="navigateToRoute(event, '/')" style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+              <i data-lucide="arrow-left" style="width: 14px; height: 14px;"></i> Return to Public Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Add Application Modal -->
+  <dialog id="modal-add-app" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; max-width: 480px; width: 90%; backdrop-filter: blur(16px); margin: auto;">
+    <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;">
+      <i data-lucide="plus-circle" style="color: var(--primary);"></i> Log New Job Application
+    </h3>
+    <form id="add-app-form" onsubmit="handleAddApplicationSubmit(event)">
+      <div class="form-group">
+        <label>Company Name</label>
+        <input type="text" id="modal-app-company" class="form-input" required placeholder="e.g. Google, Vercel, Microsoft">
+      </div>
+      <div class="form-group">
+        <label>Role / Position</label>
+        <input type="text" id="modal-app-role" class="form-input" required placeholder="e.g. Staff Full-Stack Engineer">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Source Platform</label>
+          <select id="modal-app-source" class="form-select">
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Naukri">Naukri</option>
+            <option value="Direct">Direct Careers Portal</option>
+            <option value="Referral">Employee Referral</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select id="modal-app-status" class="form-select">
+            <option value="Applied">Applied</option>
+            <option value="Under Review">Under Review</option>
+            <option value="Interviewing">Interviewing</option>
+            <option value="Offered">Offered</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Notes / Round Info</label>
+        <input type="text" id="modal-app-notes" class="form-input" placeholder="e.g. Recruiter call scheduled for Friday">
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem;">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('modal-add-app')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Application</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Add Repository Modal -->
+  <dialog id="modal-add-repo" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; max-width: 480px; width: 90%; backdrop-filter: blur(16px); margin: auto;">
+    <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;">
+      <i data-lucide="github" style="color: var(--primary);"></i> Add GitHub Repository
+    </h3>
+    <form id="add-repo-form" onsubmit="handleAddRepoSubmit(event)">
+      <div class="form-group">
+        <label>Repository Name</label>
+        <input type="text" id="modal-repo-name" class="form-input" required placeholder="e.g. distributed-rate-limiter">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" id="modal-repo-desc" class="form-input" placeholder="Short description of the system">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Language</label>
+          <input type="text" id="modal-repo-lang" class="form-input" placeholder="TypeScript / Node">
+        </div>
+        <div class="form-group">
+          <label>Linked Vercel Project Name</label>
+          <input type="text" id="modal-repo-vercel" class="form-input" placeholder="e.g. rate-limiter-app">
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem;">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('modal-add-repo')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add Repository</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/publicView.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Length 1546 >>
+stream
+BT
+/F1 22 Tf
+50 740 Td
+(SUBHANI SHAIK) Tj
+/F2 12 Tf
+0 -24 Td
+(DevOps Engineer & Cloud Architect) Tj
+/F2 10 Tf
+0 -18 Td
+(Email: subhanishaik1922@gmail.com | Phone: +91 7989112990 | Location: Bengaluru, India / Remote) Tj
+0 -16 Td
+(LinkedIn: https://www.linkedin.com/in/subhanishaik1922 | GitHub: https://github.com/subhanishaik1922) Tj
+/F1 14 Tf
+0 -32 Td
+(EXECUTIVE SUMMARY) Tj
+/F2 10 Tf
+0 -18 Td
+(DevOps Engineer and Cloud Architect specializing in scalable distributed microservices, CI/CD) Tj
+0 -14 Td
+(automation, Kubernetes, Docker container orchestration, Vercel edge deployment, and cloud security.) Tj
+/F1 14 Tf
+0 -28 Td
+(CORE COMPETENCIES & TECHNICAL SKILLS) Tj
+/F2 10 Tf
+0 -18 Td
+(- Cloud & Infrastructure: AWS, Vercel, Docker, Kubernetes, Terraform, Linux/Unix) Tj
+0 -14 Td
+(- CI/CD & Automation: GitHub Actions, Jenkins, Automated Build & Test Pipelines) Tj
+0 -14 Td
+(- Languages & Frameworks: Node.js, TypeScript, JavaScript, Python, Bash Scripting, React) Tj
+0 -14 Td
+(- Monitoring & Performance: Prometheus, Grafana, Core Web Vitals, Distributed Tracing) Tj
+/F1 14 Tf
+0 -28 Td
+(KEY PROJECTS & PRODUCTION DEPLOYMENTS) Tj
+/F2 10 Tf
+0 -18 Td
+(1. Career Command Center CMS - Full-stack personal cloud portfolio and API synchronization hub.) Tj
+0 -14 Td
+   (Integrated with GitHub API, Vercel REST APIs v10/projects and v7/deployments.) Tj
+0 -14 Td
+(2. Portfolio Production Infrastructure - Automated continuous deployment on Vercel Edge.) Tj
+0 -14 Td
+   (Active Live URL: https://portfolio-main-c8370q2v6-subhani1922.vercel.app/) Tj
+ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000326 00000 n 
+0000000396 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1993
+%%EOF

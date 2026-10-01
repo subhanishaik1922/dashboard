@@ -1,0 +1,181 @@
+{
+  "github": {
+    "username": "subhanishaik1922",
+    "profileUrl": "https://github.com/subhanishaik1922",
+    "repositories": [
+      {
+        "id": "1393199225",
+        "name": "portfolio-main",
+        "description": "Full-stack software engineering project with CI/CD automation.",
+        "stars": 0,
+        "forks": 0,
+        "language": "JavaScript",
+        "visible": true,
+        "featured": true,
+        "isPrivate": false,
+        "owner": {
+          "login": "subhanishaik1922"
+        },
+        "vercelProject": "portfolio-main",
+        "repoUrl": "https://github.com/subhanishaik1922/portfolio-main",
+        "html_url": "https://github.com/subhanishaik1922/portfolio-main",
+        "liveUrl": "https://portfolio-main-c8370q2v6-subhani1922.vercel.app",
+        "deploymentUrl": "portfolio-main-c8370q2v6-subhani1922.vercel.app",
+        "domains": []
+      }
+    ],
+    "lastSynced": "2026-10-01T14:47:59.620Z"
+  },
+  "vercel": {
+    "apiToken": "",
+    "teamId": "",
+    "autoSync": true,
+    "lastSynced": "2026-10-01T15:19:59.065Z",
+    "cachedDeployments": [
+      {
+        "id": "dpl_Cr1mPEPq4vaXbwzRtm7BypSPnJhG",
+        "name": "portfolio-main",
+        "url": "portfolio-main-mrpeb62yc-subhani1922.vercel.app",
+        "fullUrl": "https://portfolio-main-mrpeb62yc-subhani1922.vercel.app",
+        "domains": [
+          "portfolio-main-mrpeb62yc-subhani1922.vercel.app"
+        ],
+        "status": "Ready",
+        "branch": "main",
+        "commit": "chore: updated deployment URLs to Vercel production domain",
+        "commitHash": "dd6c3a3",
+        "creator": "subhanishaik1922",
+        "createdAt": "2026-09-30T15:44:01.165Z",
+        "framework": "Web App",
+        "environment": "production"
+      }
+    ],
+    "cachedProjects": [
+      {
+        "id": "prj_yErQ71I5bo6NWbKgztlWDYp3aIr6",
+        "name": "portfolio-main",
+        "framework": "nextjs",
+        "status": "Ready",
+        "url": "portfolio-main-mrpeb62yc-subhani1922.vercel.app",
+        "fullUrl": "https://portfolio-main-mrpeb62yc-subhani1922.vercel.app",
+        "domains": [
+          "portfolio-main-phi-steel.vercel.app",
+          "portfolio-main-subhani1922.vercel.app",
+          "portfolio-main-git-main-subhani1922.vercel.app"
+        ],
+        "updatedAt": "2026-09-30T15:44:31.436Z",
+        "repo": "portfolio-main"
+      }
+    ]
+  },
+  "linkedin_url": "https://www.linkedin.com/in/mahaboob-subhani-shaik-961a68228/",
+  "naukri_url": "https://www.naukri.com/mnjuser/profile?id=&altresid",
+  "resume_filename": "Mahaboob_Subhani_Shaik_DevOps_Resume (1).pdf",
+  "resume_path": "/assets/resume.pdf",
+  "work_experience": [],
+  "identity": {
+    "fullName": "Subhani shaik",
+    "title": "DevOps Engineer & Cloud Architect",
+    "email": "subhanishaik1922@gmail.com",
+    "location": "Bengaluru, India / Remote",
+    "availability": "Open to DevOps Engineer Roles",
+    "phone": "+91 7989112990",
+    "resumeUrl": "/assets/resume.pdf",
+    "linkedinUrl": "https://www.linkedin.com/in/mahaboob-subhani-shaik-961a68228/",
+    "naukriUrl": "https://www.naukri.com/mnjuser/profile?id=&altresid",
+    "shortBio": "Engineering leader specializing in scalable distributed microservices, reactive frontend architectures, cloud platforms (AWS, GCP, Vercel), and high-throughput systems.",
+    "longBio": "With over 9+ years architecting web platforms and real-time distributed systems, I design resilient cloud-native architectures that bridge technical excellence with business velocity. Deeply experienced in Node.js, TypeScript, React, Next.js, Docker, Kubernetes, and automated CI/CD deployment pipelines on Vercel and AWS.",
+    "skills": [
+      "TypeScript & JavaScript (Node.js/ES6+)",
+      "Express.js & Fastify REST/GraphQL APIs",
+      "React.js",
+      "Next.js",
+      "Redux & Tailwind CSS",
+      "Vercel Edge & Serverless Functions",
+      "Docker",
+      "Kubernetes & CI/CD Pipelines",
+      "PostgreSQL",
+      "MongoDB & Redis Caching",
+      "Distributed Systems Architecture",
+      "Performance Tuning & Core Web Vitals"
+    ],
+    "experience": [],
+    "education": [
+      {
+        "id": "edu-1",
+        "degree": "B.Tech in Computer Science & Engineering",
+        "institution": "National Institute of Technology",
+        "year": "2017"
+      }
+    ],
+    "updatedAt": "2026-10-01T14:51:40.178Z",
+    "dockerPersistenceProbe": "test_val_1790865877922",
+    "linkedin_url": "https://www.linkedin.com/in/mahaboob-subhani-shaik-961a68228/",
+    "naukri_url": "https://www.naukri.com/mnjuser/profile?id=&altresid",
+    "resume_filename": "Mahaboob_Subhani_Shaik_DevOps_Resume (1).pdf",
+    "work_experience": []
+  },
+  "jobHunt": {
+    "linkedin": {
+      "profileUrl": "https://www.linkedin.com/in/mahaboob-subhani-shaik-961a68228/",
+      "headline": "DevOps Engineer & Cloud Architect | CI/CD • Kubernetes • Vercel",
+      "profileViews": 580,
+      "searchAppearances": 210,
+      "applicationsCount": 28,
+      "inmailMessages": 11,
+      "connectionCount": 3850,
+      "lastUpdated": "2026-10-01T14:51:40.178Z"
+    },
+    "naukri": {
+      "profileUrl": "https://www.naukri.com/mnjuser/profile?id=&altresid",
+      "headline": "DevOps Engineer & Cloud Architect (Bengaluru / Remote)",
+      "profileViews": 412,
+      "searchAppearances": 160,
+      "applicationsCount": 19,
+      "recruiterActions": 25,
+      "profileScore": 96,
+      "lastUpdated": "2026-10-01T14:51:40.178Z"
+    },
+    "applications": [
+      {
+        "id": "app-101",
+        "company": "Vercel",
+        "role": "Staff Solutions Architect",
+        "source": "LinkedIn",
+        "status": "Interviewing",
+        "appliedDate": "2026-09-22",
+        "notes": "System architecture deep-dive presentation scheduled."
+      },
+      {
+        "id": "app-102",
+        "company": "Stripe",
+        "role": "Senior Infrastructure Engineer",
+        "source": "Naukri",
+        "status": "Under Review",
+        "appliedDate": "2026-09-25",
+        "notes": "Recruiter viewed profile via Naukri FastForward."
+      },
+      {
+        "id": "app-103",
+        "company": "Datadog",
+        "role": "Principal Systems Engineer",
+        "source": "LinkedIn",
+        "status": "Interviewing",
+        "appliedDate": "2026-09-18",
+        "notes": "Passed technical screener. Final panel next Tuesday."
+      },
+      {
+        "id": "app-104",
+        "company": "Atlassian",
+        "role": "Lead Full-Stack Architect",
+        "source": "Direct",
+        "status": "Applied",
+        "appliedDate": "2026-09-28",
+        "notes": "Application confirmed via careers portal."
+      }
+    ]
+  },
+  "lastSyncTimestamp": "2026-10-01T14:03:15.800Z",
+  "previous_resume_filename": "updated_subhani_resume.pdf",
+  "previous_resume_path": "/assets/resume-previous.pdf"
+}

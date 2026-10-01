@@ -1,18 +1,25 @@
-FROM node:18-alpine
+# Production Dockerfile for Career Command Center
+FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy package files first to speed up future builds
+# Install dependencies first for layer caching
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of your Next.js application code
+# Copy application files
 COPY . .
 
-# Set mandatory environment variables so Next.js can talk to your Windows browser
-ENV PORT 5000
-ENV HOSTNAME "0.0.0.0"
+# Set environment defaults
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV DATA_PATH=/app/data.json
 
-EXPOSE 5000
+# Expose server port
+EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+# Mountable volume for static assets
+VOLUME ["/app/public/assets"]
+
+# Run server directly
+CMD ["node", "server.js"]

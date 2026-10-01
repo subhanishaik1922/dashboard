@@ -1,0 +1,19 @@
+{
+  "watch": [
+    "server.js",
+    "server/",
+    "public/",
+    "api/"
+  ],
+  "ext": "js,mjs,json,html,css",
+  "ignore": [
+    "data.json",
+    "data/",
+    ".git/",
+    "node_modules/",
+    "public/assets/history/",
+    "*.log"
+  ],
+  "legacyWatch": true,
+  "delay": 250
+}
