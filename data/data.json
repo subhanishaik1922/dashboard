@@ -42,13 +42,13 @@
         "domains": []
       }
     ],
-    "lastSynced": "2026-10-01T15:47:17.572Z"
+    "lastSynced": "2026-10-01T15:53:16.373Z"
   },
   "vercel": {
     "apiToken": "",
     "teamId": "",
     "autoSync": true,
-    "lastSynced": "2026-10-01T15:51:42.109Z",
+    "lastSynced": "2026-10-01T15:53:16.760Z",
     "cachedDeployments": [
       {
         "id": "dpl_Cr1mPEPq4vaXbwzRtm7BypSPnJhG",
