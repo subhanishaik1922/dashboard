@@ -42,14 +42,31 @@
         "domains": []
       }
     ],
-    "lastSynced": "2026-10-01T17:08:42.676Z"
+    "lastSynced": "2026-10-06T10:25:50.472Z"
   },
   "vercel": {
     "apiToken": "",
     "teamId": "",
     "autoSync": true,
-    "lastSynced": "2026-10-01T17:08:42.861Z",
+    "lastSynced": "2026-10-06T10:29:45.872Z",
     "cachedDeployments": [
+      {
+        "id": "dpl_4jgRZjrhyv6eFuPbUTFRjXrC8X8n",
+        "name": "dashboard",
+        "url": "dashboard-no9l2v7q7-subhani1922.vercel.app",
+        "fullUrl": "https://dashboard-no9l2v7q7-subhani1922.vercel.app",
+        "domains": [
+          "dashboard-no9l2v7q7-subhani1922.vercel.app"
+        ],
+        "status": "Ready",
+        "branch": "main",
+        "commit": "Auto-update from Antigravity",
+        "commitHash": "d429999",
+        "creator": "subhanishaik1922",
+        "createdAt": "2026-10-06T09:07:42.628Z",
+        "framework": "Web App",
+        "environment": "production"
+      },
       {
         "id": "dpl_Cr1mPEPq4vaXbwzRtm7BypSPnJhG",
         "name": "portfolio-main",
@@ -70,19 +87,33 @@
     ],
     "cachedProjects": [
       {
+        "id": "prj_kaRobNPthvEmARZOqv35Sw5xFIsv",
+        "name": "dashboard",
+        "framework": "express",
+        "status": "Ready",
+        "url": "dashboard-no9l2v7q7-subhani1922.vercel.app",
+        "fullUrl": "https://dashboard-no9l2v7q7-subhani1922.vercel.app",
+        "domains": [
+          "dashboard-smoky-three-96.vercel.app",
+          "dashboard-subhani1922.vercel.app",
+          "dashboard-git-main-subhani1922.vercel.app"
+        ],
+        "updatedAt": "2026-10-06T09:08:00.329Z",
+        "repo": "dashboard"
+      },
+      {
         "id": "prj_yErQ71I5bo6NWbKgztlWDYp3aIr6",
         "name": "portfolio-main",
         "framework": "nextjs",
-        "status": "Ready",
-        "url": "portfolio-main-mrpeb62yc-subhani1922.vercel.app",
-        "fullUrl": "https://portfolio-main-mrpeb62yc-subhani1922.vercel.app",
+        "status": "Error",
+        "url": "portfolio-main-4ixd2bu8x-subhani1922.vercel.app",
+        "fullUrl": "https://portfolio-main-4ixd2bu8x-subhani1922.vercel.app",
         "domains": [
-          "portfolio-main-phi-steel.vercel.app",
           "portfolio-main-subhani1922.vercel.app",
           "portfolio-main-git-main-subhani1922.vercel.app"
         ],
-        "updatedAt": "2026-10-01T17:03:09.958Z",
-        "repo": "portfolio-main"
+        "updatedAt": "2026-10-01T17:33:56.774Z",
+        "repo": "dashboard"
       }
     ]
   },
@@ -93,7 +124,7 @@
   "work_experience": [],
   "identity": {
     "fullName": "Subhani shaik",
-    "title": "DevOps Engineer & Cloud Architect",
+    "title": "Principal Full-Stack Engineer & Cloud Architect",
     "email": "subhanishaik1922@gmail.com",
     "location": "Bengaluru, India / Remote",
     "availability": "Open to DevOps Engineer Roles",
@@ -126,7 +157,7 @@
         "year": "2017"
       }
     ],
-    "updatedAt": "2026-10-01T15:47:17.686Z",
+    "updatedAt": "2026-10-06T10:28:22.579Z",
     "dockerPersistenceProbe": "test_val_1790869637662",
     "linkedin_url": "https://www.linkedin.com/in/mahaboob-subhani-shaik-961a68228/",
     "naukri_url": "https://www.naukri.com/mnjuser/profile?id=&altresid",
@@ -142,7 +173,7 @@
       "applicationsCount": 28,
       "inmailMessages": 11,
       "connectionCount": 3850,
-      "lastUpdated": "2026-10-01T15:47:13.686Z"
+      "lastUpdated": "2026-10-06T10:27:01.040Z"
     },
     "naukri": {
       "profileUrl": "https://www.naukri.com/mnjuser/profile?id=&altresid",
@@ -152,7 +183,7 @@
       "applicationsCount": 19,
       "recruiterActions": 25,
       "profileScore": 96,
-      "lastUpdated": "2026-10-01T15:47:13.768Z"
+      "lastUpdated": "2026-10-06T10:27:01.047Z"
     },
     "applications": [
       {
@@ -193,7 +224,7 @@
       }
     ]
   },
-  "lastSyncTimestamp": "2026-10-01T14:03:15.800Z",
+  "lastSyncTimestamp": "2026-10-06T10:27:24.055Z",
   "previous_resume_filename": "updated_subhani_resume.pdf",
   "previous_resume_path": "/assets/resume-previous.pdf"
 }

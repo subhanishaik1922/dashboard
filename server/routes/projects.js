@@ -2,12 +2,18 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
+// Explicit dynamic flags to bypass Vercel build-time caching and data freezing
+router.dynamic = 'force-dynamic';
+router.revalidate = 0;
+router.fetchCache = 'force-no-store';
+
 /**
  * GET /api/projects
  * Public: Returns unified project attributes directly from data.json database structure.
  * Guarantees exact mapping of repo.html_url and repo.repoUrl for public cards.
  */
 router.get('/', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0');
   try {
     const data = db.getData();
     const repos = (data.github && Array.isArray(data.github.repositories)) ? data.github.repositories : [];

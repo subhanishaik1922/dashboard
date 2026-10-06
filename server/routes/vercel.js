@@ -4,6 +4,11 @@ const db = require('../db');
 const vercelService = require('../vercelService');
 const { requireAdminAuth } = require('../auth');
 
+// Explicit dynamic flags to bypass Vercel build-time caching and data freezing
+router.dynamic = 'force-dynamic';
+router.revalidate = 0;
+router.fetchCache = 'force-no-store';
+
 /**
  * GET /api/vercel/projects
  * Public: Hits https://api.vercel.com/v10/projects and returns .projects wrapper array

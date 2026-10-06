@@ -108,6 +108,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Dynamic caching bypass for Vercel Edge CDN & Serverless runtime
+app.use('/api', (req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=0');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.setHeader('Surrogate-Control', 'no-store');
+  next();
+});
+
 // Request logger for API calls
 app.use('/api', (req, res, next) => {
   const start = Date.now();
@@ -918,6 +927,9 @@ if (!isServerless && (require.main === module || (require.main && require.main.f
 }
 
 module.exports = app;
+module.exports.dynamic = 'force-dynamic';
+module.exports.revalidate = 0;
+module.exports.fetchCache = 'force-no-store';
 module.exports.startAutoSyncService = startAutoSyncService;
 module.exports.runAutomatedLiveSync = runAutomatedLiveSync;
 module.exports.syncEngineState = syncEngineState;

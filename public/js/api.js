@@ -26,13 +26,60 @@ const API = {
     return Boolean(this.getToken());
   },
 
+  /**
+   * Dynamically determines API Base URL:
+   * 1. Window or process NEXT_PUBLIC_VERCEL_URL fallback
+   * 2. Browser relative routing (clean path like /api/deployments)
+   * 3. SSR / default fallback to http://localhost:3000
+   */
+  getBaseUrl() {
+    // 1. Process environment or injected window variable
+    if (typeof window !== 'undefined' && (window.NEXT_PUBLIC_VERCEL_URL || window.__API_BASE_URL__)) {
+      const u = window.NEXT_PUBLIC_VERCEL_URL || window.__API_BASE_URL__;
+      return u.startsWith('http') ? u.replace(/\/+$/, '') : `https://${u}`.replace(/\/+$/, '');
+    }
+    if (typeof process !== 'undefined' && process.env && (process.env.NEXT_PUBLIC_VERCEL_URL || process.env.VERCEL_URL)) {
+      const u = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.VERCEL_URL;
+      return u.startsWith('http') ? u.replace(/\/+$/, '') : `https://${u}`.replace(/\/+$/, '');
+    }
+    // 2. Browser environment: use clean relative routing
+    if (typeof window !== 'undefined' && window.location) {
+      return '';
+    }
+    // 3. Fallback: localhost
+    return (typeof process !== 'undefined' && process.env && process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000');
+  },
+
+  /**
+   * Constructs fully-qualified or clean relative API route path
+   */
+  buildUrl(endpoint) {
+    if (endpoint.startsWith('http://') || endpoint.startsWith('https://')) {
+      return endpoint;
+    }
+    const cleanPath = endpoint.startsWith('/api')
+      ? endpoint
+      : `/api${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;
+    const base = this.getBaseUrl();
+    return base ? `${base}${cleanPath}` : cleanPath;
+  },
+
   async request(endpoint, options = {}) {
-    const url = endpoint.startsWith('http') ? endpoint : `/api${endpoint}`;
+    let url = this.buildUrl(endpoint);
     const token = this.getToken();
+
+    // Cache-busting timestamp for GET requests to prevent Vercel CDN data freezing
+    const method = (options.method || 'GET').toUpperCase();
+    if (method === 'GET') {
+      const sep = url.includes('?') ? '&' : '?';
+      url = `${url}${sep}_t=${Date.now()}`;
+    }
 
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
       ...(options.headers || {})
     };
 
@@ -221,12 +268,16 @@ const API = {
     const formData = new FormData();
     formData.append('resume', file);
 
-    const headers = {};
+    const headers = {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache'
+    };
     if (token) {
       headers['Authorization'] = `Bearer ${token}`;
     }
 
-    const response = await fetch('/api/resume/upload', {
+    const uploadUrl = this.buildUrl('/resume/upload');
+    const response = await fetch(uploadUrl, {
       method: 'POST',
       headers,
       body: formData

@@ -4,6 +4,11 @@ const db = require('../db');
 const githubService = require('../githubService');
 const { requireAdminAuth } = require('../auth');
 
+// Explicit dynamic flags to bypass Vercel build-time caching and data freezing
+router.dynamic = 'force-dynamic';
+router.revalidate = 0;
+router.fetchCache = 'force-no-store';
+
 /**
  * GET /api/github/repos
  * Public: Returns repository list (triggers GitHub API synchronization if live or returns cached)

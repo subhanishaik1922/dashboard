@@ -67,8 +67,16 @@ function ensureGitConfigured() {
     runGit(`git config user.email "${username}@gmail.com"`);
   }
 
-  // 3. Configure remote with token auth
-  const repoName = 'portfolio-main';
+  // 3. Configure remote with token auth preserving current repository name
+  let repoName = 'dashboard';
+  try {
+    const currentRemote = runGit('git remote get-url origin', { silent: true }).trim();
+    const match = currentRemote.match(/\/([^/]+?)(?:\.git)?$/);
+    if (match && match[1]) {
+      repoName = match[1];
+    }
+  } catch (e) {}
+
   const remoteUrl = token
     ? `https://${token}@github.com/${username}/${repoName}.git`
     : `https://github.com/${username}/${repoName}.git`;
@@ -77,7 +85,7 @@ function ensureGitConfigured() {
     const currentRemote = runGit('git remote get-url origin', { silent: true }).trim();
     if (!currentRemote.includes(token) && token) {
       runGit(`git remote set-url origin ${remoteUrl}`);
-      console.log(`[AUTO-GIT-SYNC] Configured origin remote with authenticated token.`);
+      console.log(`[AUTO-GIT-SYNC] Configured origin remote with authenticated token (${repoName}).`);
     }
   } catch (e) {
     runGit(`git remote add origin ${remoteUrl}`);

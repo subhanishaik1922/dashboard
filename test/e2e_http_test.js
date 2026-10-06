@@ -1,6 +1,7 @@
 async function runE2E() {
-  console.log('🚀 Running Live HTTP Integration Tests against http://localhost:3000...\n');
-  const base = 'http://localhost:3000';
+  const dynamicBase = process.env.BASE_URL || (process.env.NEXT_PUBLIC_VERCEL_URL ? (process.env.NEXT_PUBLIC_VERCEL_URL.startsWith('http') ? process.env.NEXT_PUBLIC_VERCEL_URL : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`) : 'http://localhost:3000');
+  const base = dynamicBase.replace(/\/+$/, '');
+  console.log(`🚀 Running Live HTTP Integration Tests against ${base}...\n`);
 
   // 1. Unauthenticated GET /admin should redirect (HTTP 302) to /login
   const adminRes = await fetch(`${base}/admin`, { redirect: 'manual' });

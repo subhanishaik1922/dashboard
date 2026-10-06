@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../auth');
 
+// Explicit dynamic flags to bypass Vercel build-time caching and data freezing
+router.dynamic = 'force-dynamic';
+router.revalidate = 0;
+router.fetchCache = 'force-no-store';
+
 /**
  * POST /api/auth/login
  * Validates the custom admin password strictly from process.env.ADMIN_PASSWORD
